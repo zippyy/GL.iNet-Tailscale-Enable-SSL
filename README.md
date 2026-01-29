@@ -37,7 +37,7 @@ The scripts are:
 
 ## Supported devices (Tested Devices)
 
-### Routers (nginx on :443)
+### Routers
 - Flint 3 (GL-BE9300)
 - Slate 7 (GL-BE3600)
 - Puli AX (GL-XE3000)

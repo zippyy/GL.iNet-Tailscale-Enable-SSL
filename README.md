@@ -51,14 +51,18 @@ The scripts are:
 
 ### KVM Script
 
-Run the updater without cloning the repository:****
+****Run the updater without cloning the repository:****
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-kvm.sh | sh
-tailscale-ssl-router
+tailscale-ssl-kvm
 ```
 
 ## Router Script 
 
-incoming
+****Run the updater without cloning the repository:****
 
+```bash
+curl -fsSL https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-router.sh | sh
+tailscale-ssl-router
+```

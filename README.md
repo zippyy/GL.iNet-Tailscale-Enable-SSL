@@ -62,5 +62,5 @@ curl -fsSL https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL
 ****Run the updater without cloning the repository:****
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-router.sh | sh tailscale-ssl-router
+curl -fsSL https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscales-ssl-router.sh | sh tailscale-ssl-router
 ```

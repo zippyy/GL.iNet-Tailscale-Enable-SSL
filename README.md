@@ -62,5 +62,5 @@ wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/re
 ****Run the updater without cloning the repository:****
 
 ```bash
-wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscales-ssl-router.sh -o tailscale-ssl-router.sh | sh tailscale-ssl-router
+wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-router.sh -o tailscale-ssl-router.sh | sh tailscale-ssl-router
 ```

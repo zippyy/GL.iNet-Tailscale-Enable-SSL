@@ -6,7 +6,7 @@
 # Flint / Slate / Puli / Beryl / etc
 #
 # Manual process
-# re-run about every ~90 days
+# run about every 90 days
 # or create a cronjob/service
 #
 
@@ -119,3 +119,4 @@ fi
 
 echo "[OK] HTTPS enabled for:"
 echo "     https://${TAILNET_DOMAIN}"
+

@@ -11,7 +11,7 @@ default self-signed Cert.
 
 > ⚠️ **Important**
 > - This is a **manual process**
-> - You must re-run the script about **every 90 days** to renew the cert
+> - You must re-run the script about **every 90 days** to renew the cert OR Setup a cronjob or service etc...
 > - The certificate will only validate for the **Tailnet hostname**, not the LAN IP
 > - You must have HTTPS enabled in your tailnet admin settings
 > - You must be using an up to date tailscale version, this works on both routers and kvm thanks to [Admon](https://github.com/admonstrator/glinet-tailscale-updater): ```bash wget -q https://get.admon.me/tailscale -O update-tailscale.sh ; sh update-tailscale.sh ```

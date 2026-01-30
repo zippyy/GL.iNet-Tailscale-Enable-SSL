@@ -7,7 +7,7 @@ Helper scripts to install **Tailscale-issued HTTPS certificates** on:
 
 This lets you access your device securely using its **Tailnet FQDN**
 (e.g. `device-name.tailnet.ts.net`) with a trusted certificate instead of the
-default self-signed GL.iNet / kvmd cert.
+default self-signed Cert.
 
 > ⚠️ **Important**
 > - This is a **manual process**

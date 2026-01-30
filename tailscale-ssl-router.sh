@@ -2,10 +2,12 @@
 #
 # tailscale-ssl-router.sh
 #
-# GL.iNet routers (nginx on :443)
+# GL.iNet routers 
 # Flint / Slate / Puli / Beryl / etc
 #
-# Manual process – re-run about every ~90 days
+# Manual process
+# re-run about every ~90 days
+# or create a cronjob/service
 #
 
 set -e
@@ -16,18 +18,18 @@ NGINX_KEY="/etc/nginx/nginx.key"
 
 mkdir -p "$BACKUP_DIR"
 
-log() { echo "[*] $*"; }
+log()  { echo "[*] $*"; }
 warn() { echo "[!] $*"; }
 
 # ------------------------------------------------------------
 # 1. Detect Tailnet domain
 # ------------------------------------------------------------
-log "Running 'tailscale cert' to detect Tailnet domain..."
+log "Detecting Tailnet domain..."
 CERT_OUT="$(tailscale cert 2>&1 || true)"
 TAILNET_DOMAIN="$(printf '%s\n' "$CERT_OUT" | grep -Eo '[A-Za-z0-9.-]+\.ts\.net' | head -n1)"
 
 if [ -z "$TAILNET_DOMAIN" ]; then
-  warn "Could not detect Tailnet domain from tailscale output"
+  warn "Could not detect Tailnet domain"
   printf '%s\n' "$CERT_OUT"
   exit 1
 fi
@@ -35,9 +37,9 @@ fi
 log "Detected Tailnet domain: $TAILNET_DOMAIN"
 
 # ------------------------------------------------------------
-# 2. ALWAYS generate / refresh cert 
+# 2. Generate / refresh Tailscale cert
 # ------------------------------------------------------------
-log "Generating / refreshing Tailscale cert..."
+log "Generating or refreshing Tailscale cert..."
 tailscale cert "$TAILNET_DOMAIN"
 
 # ------------------------------------------------------------
@@ -50,7 +52,7 @@ KEY_SRC="/root/${TAILNET_DOMAIN}.key"
 [ -f "$KEY_SRC" ] || KEY_SRC="./${TAILNET_DOMAIN}.key"
 
 if [ ! -f "$CRT_SRC" ] || [ ! -f "$KEY_SRC" ]; then
-  warn "Cert files still not found after tailscale cert"
+  warn "Cert files not found after tailscale cert"
   echo "    $CRT_SRC"
   echo "    $KEY_SRC"
   exit 1
@@ -95,7 +97,7 @@ log "Restarting nginx..."
 /etc/init.d/nginx restart 2>/dev/null || killall -HUP nginx 2>/dev/null || true
 
 # ------------------------------------------------------------
-# 8. Verify served cert 
+# 8. Verify served cert on :443
 # ------------------------------------------------------------
 log "Confirming cert served on localhost:443 (retry up to 15s)..."
 i=0
@@ -115,5 +117,5 @@ if [ -z "$OUT" ]; then
   exit 1
 fi
 
-echo "[✓] Done. Test in browser:"
-echo "    https://${TAILNET_DOMAIN}"
+echo "[OK] HTTPS enabled for:"
+echo "     https://${TAILNET_DOMAIN}"

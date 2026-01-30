@@ -54,7 +54,7 @@ The scripts are:
 ****Run the updater without cloning the repository:****
 
 ```bash
-wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-kvm.sh -o tailscale-ssl-kvm.sh | sh tailscale-ssl-kvm
+wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-kvm.sh -O tailscale-ssl-kvm.sh | sh tailscale-ssl-kvm
 ```
 
 ## Router Script 
@@ -62,5 +62,5 @@ wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/re
 ****Run the updater without cloning the repository:****
 
 ```bash
-wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-router.sh -o tailscale-ssl-router.sh | sh tailscale-ssl-router
+wget -q https://raw.githubusercontent.com/zippyy/GL.iNet-Tailscale-Enable-SSL/refs/heads/main/tailscale-ssl-router.sh -O tailscale-ssl-router.sh | sh tailscale-ssl-router
 ```
